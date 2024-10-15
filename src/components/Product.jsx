@@ -1,6 +1,3 @@
-// import { useContext } from "react";
-// import { Link } from "react-router-dom";
-
 import { BsEyeFill, BsPlus } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
@@ -30,6 +27,11 @@ const Product = ({ product }) => {
           </Link>
         </div>
       </div>
+      <div>{category}</div>
+      <Link to={`/product/:id`}>
+        <h2>{title}</h2>
+      </Link>
+      <div>{price}</div>
     </div>
   );
 };

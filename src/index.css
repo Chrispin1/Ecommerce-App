@@ -11,3 +11,12 @@
 body {
   font-family: "Jost", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: gray;
+}
+
+:-webkit-slider-thumb {
+  background-color: gray;
+}
