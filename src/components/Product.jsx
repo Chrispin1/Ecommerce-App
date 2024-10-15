@@ -17,15 +17,15 @@ const Product = ({ product }) => {
             alt=""
           />
         </div>
-        <div className="absolute top-0 bg-red-500/40 p-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all -right-11 group-hover:right-0">
+        <div className="absolute top-2  p-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all -right-11 group-hover:right-2 ">
           <button>
-            <div className="flex justify-center items-center text-white w-12 h-12 bg-red-500">
-              <BsPlus className="text-3xl" />
+            <div className="flex justify-center items-center text-white w-12 h-12 md:w-7 md:h-7 bg-red-500 shadow-lg">
+              <BsPlus className="text-3xl lg:text-xl" />
             </div>
           </button>
           <Link
-            to={"/"}
-            className="flex items-center justify-center bg-white w-12 h-12 drop-shadow-xl text-primary">
+            to={`/product/${id}`}
+            className="flex items-center justify-center md:w-7 md:h-7 w-12 h-12 drop-shadow-xl text-primary bg-red-300">
             <BsEyeFill />
           </Link>
         </div>
