@@ -6,6 +6,7 @@ import ProductDetails from "./Pages/ProductDetails.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductProvider from "./context/ProductContext.jsx";
+import SidebarProvider from "./context/SidebarContext.jsx";
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -23,9 +24,11 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <ProductProvider>
-    <StrictMode>
-      <RouterProvider router={router} />
-    </StrictMode>
-  </ProductProvider>
+  <SidebarProvider>
+    <ProductProvider>
+      <StrictMode>
+        <RouterProvider router={router} />
+      </StrictMode>
+    </ProductProvider>
+  </SidebarProvider>
 );
