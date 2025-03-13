@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { SidebarContext } from "../contexts/SidebarContext";
 import { FiTrash2 } from "react-icons/fi";
 import { IoMdArrowForward } from "react-icons/io";
+import { CartContext } from "../contexts/CartContext";
+import CartItem from "./CartItem";
 
 const Sidebar = () => {
   const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext);
+  const { cart, addToCart } = useContext(CartContext);
   return (
     <div
       className={`${
@@ -18,6 +21,13 @@ const Sidebar = () => {
           onClick={handleClose}
         >
           <IoMdArrowForward className="text-2xl" />
+        </div>
+      </div>
+      <div>
+        <div>
+          {cart.map((item) => (
+            <CartItem item={item} key={item.id} />
+          ))}
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ import Header from "./components/Header.jsx";
 import Error from "./components/ErrorPage.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import SidebarProvider from "./contexts/SidebarContext.jsx";
-import { CartContext } from "./contexts/CartContext.jsx";
+import CartProvider from "./contexts/CartContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,13 +34,13 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <CartContext>
-    <SidebarProvider>
+  <SidebarProvider>
+    <CartProvider>
       <ProductProvider>
         <StrictMode>
           <RouterProvider router={router} />
         </StrictMode>
       </ProductProvider>
-    </SidebarProvider>
-  </CartContext>
+    </CartProvider>
+  </SidebarProvider>
 );
