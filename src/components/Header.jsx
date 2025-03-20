@@ -1,14 +1,43 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../contexts/SidebarContext";
 import { BsBag } from "react-icons/bs";
+import { CartContext } from "../contexts/CartContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
+  const { itemAmount } = useContext(CartContext);
+  const [isActive, setIsActive] = useState(false);
+  useEffect(() => {
+    window.addEventListener(
+      "scroll",
+      () => {
+        window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
+      },
+      []
+    );
+  });
   return (
-    <header className="bg-pink-200">
-      <div>Header</div>
-      <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-        <BsBag className="text-2xl hover:scale-110 transition duration-300" />
+    <header
+      className={`${
+        isActive ? "bg-red-500" : "bg-blue-200"
+      } py-4 fixed w-full z-10 transition-all`}
+    >
+      <div className="container flex items-center justify-between mx-auto h-full px-4 ">
+        <Link to={"/"}>
+          <div>
+            <img src="/logo.svg" alt="logo" className="w-[40px]" />
+          </div>
+        </Link>
+        <div
+          className="cursor-pointer flex relative "
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <BsBag className="text-2xl hover:scale-110 transition duration-300" />
+          <div className="bg-red-500 absolute -right-2 -bottom-2 rounded-full text-[12px] h-[18px] w-[18px] flex justify-center items-center">
+            {itemAmount}
+          </div>
+        </div>
       </div>
     </header>
   );

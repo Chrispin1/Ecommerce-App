@@ -7,12 +7,12 @@ import CartItem from "./CartItem";
 
 const Sidebar = () => {
   const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext);
-  const { cart, addToCart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   return (
     <div
       className={`${
         isOpen ? "right-0" : "-right-full"
-      } bg-white w-full md:w-[35vw] xl:max-w-[30vw] shadow-2xl transition-all fixed top-0 h-full z-20 px-4 lg:px-[35px] duration-300`}
+      } bg-white overflow-x-scroll w-full sm:w-[50vw] md:w-[45vw] lg:w-[32vw] xl:max-w-[40vw] shadow-2xl transition-all fixed top-0 h-full z-20 px-4 lg:px-[30px] duration-300`}
     >
       <div className="flex justify-between items-center border-b py-6">
         <div className="font-semibold uppercase">Shopping Bag (0)</div>
@@ -28,6 +28,19 @@ const Sidebar = () => {
           {cart.map((item) => (
             <CartItem item={item} key={item.id} />
           ))}
+        </div>
+      </div>
+      <div>
+        <div className="flex items-center justify-between py-2 w-full">
+          <div>
+            <span className="uppercase font-semibold">Total:</span>
+          </div>
+          <div
+            onClick={() => clearCart()}
+            className="cursor-pointer py-4 bg-red-500 w-12 h-12 flex items-center justify-center text-xl text-white"
+          >
+            <FiTrash2 />
+          </div>
         </div>
       </div>
     </div>

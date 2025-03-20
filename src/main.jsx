@@ -5,7 +5,6 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductProvider from "./contexts/ProductContext.jsx";
 import Home from "./pages/Home.jsx";
-import Header from "./components/Header.jsx";
 import Error from "./components/ErrorPage.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import SidebarProvider from "./contexts/SidebarContext.jsx";
@@ -26,10 +25,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/header",
-    element: <Header />,
-  },
+
   { path: "*", element: <Error /> },
 ]);
 
