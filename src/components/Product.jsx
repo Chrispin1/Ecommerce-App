@@ -8,7 +8,7 @@ const Product = ({ product }) => {
   const { id, title, category, image, price } = product;
   return (
     <div>
-      <div className="border border-[#e4e4e4] overflow-hidden h-[300px] relative group transition">
+      <div className="border border-[#e4e4e4] overflow-hidden h-[250px] relative group transition bg-white">
         <div className="w-full h-full flex items-center justify-center">
           <div className="flex items-center justify-center w-[200px] mx-auto">
             <img

@@ -8,11 +8,12 @@ const Header = () => {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemAmount } = useContext(CartContext);
   const [isActive, setIsActive] = useState(false);
+
   useEffect(() => {
     window.addEventListener(
       "scroll",
       () => {
-        window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
+        window.scrollY > 20 ? setIsActive(true) : setIsActive(false);
       },
       []
     );
@@ -20,10 +21,10 @@ const Header = () => {
   return (
     <header
       className={`${
-        isActive ? "bg-red-500" : "bg-blue-200"
+        isActive ? "bg-white shadow-md" : "bg-none"
       } py-4 fixed w-full z-10 transition-all`}
     >
-      <div className="container flex items-center justify-between mx-auto h-full px-4 ">
+      <div className="container flex items-center justify-between mx-auto h-full px-6 md:px-10 ">
         <Link to={"/"}>
           <div>
             <img src="/logo.svg" alt="logo" className="w-[40px]" />
